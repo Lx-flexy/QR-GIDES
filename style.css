@@ -448,7 +448,7 @@ ul li a:hover{
     }   
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 450px){
     /*mobile*/
     .logo{
         margin-left: 140px;
