@@ -1,62 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Webpage Design</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Guide - Webpage Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="main">
+        <!-- Navbar -->
         <div class="navbar">
             <div class="icon">
                 <h2 class="logo">QR GUIDE</h2>
             </div>
-
             <div class="menu">
                 <ul>
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="about.html">ABOUT</a></li>
-                    <li><a href="tourmap.html">TOUR.MAP</MAP></a></li>
+                    <li><a href="tourmap.html">TOUR MAP</a></li>
                     <li><a href="media.html">MEDIA</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
                 </ul>
             </div>
-
             <div class="search">
-                <input class="srch" type="search" name="" placeholder="Type To text">
+                <input class="srch" type="search" name="" placeholder="Type to search">
                 <a href="#"> <button class="btn">Search</button></a>
             </div>
-
         </div> 
+
+        <!-- Main Content -->
         <div class="content">
             <h1>TRAVEL & <br><span>SHARE</span> <br>SCAN THE QR</h1>
-            <p class="par"> And get the instent information about your current tourist location  <br> and share your memorable moments   
-                <br> You can also take advantage of our service the tour map </p>
+            <p class="par"> Get instant information about your current tourist location and share your memorable moments.<br> You can also take advantage of our tour map service. </p>
+            <button class="cn"><a href="#">SCAN</a></button>
+        </div>
 
-                <button class="cn"><a href="#">SCAN</a><a href="#"><ion-icon name="#"></ion-icon></a></button>
-
-                <div class="form">
-                    <h2>Login Here</h2>
-                    <input type="email" name="email" placeholder="Enter Email Here">
-                    <input type="password" name="" placeholder="Enter Password Here">
-                    <button class="btnn"><a href="#">Login</a></button>
-
-                    <p class="link">Don't have an account<br>
-                    <a href="#">Sign up </a> here</a></p>
-                    <p class="liw">Log in with</p>
-
-                    <div class="icons">
-                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                        <a href="https://www.instagram.com/_the.lx?igsh=MTd0bHNvdHBsdjlhcg=="><ion-icon name="logo-instagram"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-google"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+        <!-- Forms Section -->
+        <div class="form-container">
+            <!-- Login Form -->
+            <div class="container" id="signIn">
+                <h2 class="form-title">Login Here</h2>
+                <form method="post" action="login.php">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" placeholder="Enter Email Here" required>
                     </div>
-
-                </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Enter Password Here" required>
                     </div>
+                    <p class="recover"><a href="#">Recover Password</a></p>
+                    <button class="btnn" type="submit">Login</button>
+                </form>
+                <p class="link">Don't have an account?<br><button id="signUpButton">Sign Up</button> here</p>
+                <p class="liw">Log in with</p>
+                <div class="icons">
+                    <i class="fab fa-google"></i>
+                    <i class="fab fa-facebook"></i>
                 </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="container" id="signup" style="display:none;">
+                <h2 class="form-title">Register Here</h2>
+                <form method="post" action="register.php">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="fName" id="fName" placeholder="First Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="lName" id="lName" placeholder="Last Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button class="btnn" type="submit">Sign Up</button>
+                </form>
+                <p class="link">Already have an account?<br><button id="signInButton">Sign In</button> here</p>
+                <p class="liw">Sign up with</p>
+                <div class="icons">
+                    <i class="fab fa-google"></i>
+                    <i class="fab fa-facebook"></i>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <!-- JS for toggling between forms -->
+    <script>
+        const signUpButton = document.getElementById('signUpButton');
+        const signInButton = document.getElementById('signInButton');
+        const signInForm = document.getElementById('signIn');
+        const signUpForm = document.getElementById('signup');
+
+        signUpButton.addEventListener('click', () => {
+            signInForm.style.display = 'none';
+            signUpForm.style.display = 'block';
+        });
+
+        signInButton.addEventListener('click', () => {
+            signUpForm.style.display = 'none';
+            signInForm.style.display = 'block';
+        });
+    </script>
 </body>
 </html>
